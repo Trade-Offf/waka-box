@@ -1,12 +1,18 @@
+# 这段代码是一个GitHub Actions工作流程配置文件的一部分。
+# GitHub Actions 是GitHub提供的CI/CD（持续集成/持续部署）服务，可以自动化软件开发流程中的各种任务，如测试代码、部署应用等。
 name: Update Gist
 
+# 定义了触发工作流程的条件，这里有两个条件：
+# push: 当有代码被推送（push）到master分支时，触发这个工作流程
+# schedule 每三小时执行一次，在每小时的0分执行
 on:
   push:
     branches: master
-    
+
   schedule:
     - cron: "0 */3 * * *"
 
+# 定义了工作流程中要执行的任务，这里只有一个任务叫update-gist。
 jobs:
   update-gist:
     runs-on: ubuntu-latest
